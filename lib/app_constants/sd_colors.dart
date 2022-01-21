@@ -1,0 +1,23 @@
+import 'package:flutter/material.dart';
+
+const appColorPrimary = Color(0xFF0A79DF);
+const appColorPrimaryDark = Color(0xFF0A79DF);
+const appColorAccent = Color(0xFF03DAC5);
+const appTextColorPrimary = Color(0xFF212121);
+const iconColorPrimary = Color(0xFFFFFFFF);
+const appTextColorSecondary = Color(0xFF5A5C5E);
+const iconColorSecondary = Color(0xFFA8ABAD);
+const appLayout_background = Color(0xFFf8f8f8);
+const appWhite = Color(0xFFFFFFFF);
+const appLight_purple = Color(0xFFdee1ff);
+const appLight_orange = Color(0xFFffddd5);
+const SDColorPrimary = Color(0xFFff6e40);
+const SDColorSecondary = Color(0xFF);
+const SDAppTextColorPrimary = Color(0xFF212121);
+const SDAppTextColorSecondary = Color(0xFF5A5C5E);
+const SDBackGroundColor = Color(0xFFF0F4FF);
+const SDGreyColor = Color(0xFF808080);
+const SDAppShadowColor = Color(0x95E9EBF0);
+const SDAppDividerColor = Color(0xFFDADADA);
+const whiteColor = Colors.white;
+const blackColor = Colors.black;
