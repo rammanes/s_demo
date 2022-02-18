@@ -4,6 +4,7 @@ import 'package:s_demo/app_constants/sd_colors.dart';
 import 'package:s_demo/app_constants/sd_constants.dart';
 import 'package:s_demo/extensions/num_extension.dart';
 import 'package:s_demo/extensions/widget_extension.dart';
+import 'package:s_demo/screens/SDDecisionPage.dart';
 import 'package:s_demo/screens/SDLoginScreen.dart';
 import 'package:s_demo/widgets/app_widget.dart';
 
@@ -147,7 +148,9 @@ class _SDWalkThroughScreenState extends State<SDWalkThroughScreen> {
                   margin: EdgeInsets.only(),
                   child: Align(
                       alignment: Alignment.bottomCenter,
-                      child: elevatedButton((){SDLoginScreen().launch(context);}, "Get Started").defaultContainer(270, height: 40)),
+                      child: elevatedButton((){
+                        SDDecisionPage().launch(context);
+                        }, "Get Started").defaultContainer(270, height: 40)),
                 ),
               ))
         ],

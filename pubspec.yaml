@@ -13,6 +13,15 @@ dependencies:
   cached_network_image: ^3.2.0
   dots_indicator: ^2.0.0
   cupertino_icons: ^1.0.2
+  firebase_core: ^1.11.0
+  firebase_analytics: ^9.0.5
+  firebase_auth: ^3.3.5
+  cloud_firestore: ^3.1.6
+  fluttertoast: ^8.0.8
+  email_validator: ^2.0.1
+  google_sign_in: ^5.2.3
+  flutter_facebook_auth: ^4.0.1
+  twitter_login: ^4.0.1
 
 dev_dependencies:
   flutter_test:

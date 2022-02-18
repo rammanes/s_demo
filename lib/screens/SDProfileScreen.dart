@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:s_demo/authentication/auth.dart';
+import 'package:s_demo/widgets/app_widget.dart';
 
 
 class SDProfileScreen extends StatefulWidget {
@@ -12,7 +14,12 @@ class _SDProfileScreenState extends State<SDProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(child: Scaffold(
-      body: Text('Profile under construction'),
+      body: Center(
+        child:
+          elevatedButton((){
+            AuthenticationHelper().signOut();
+          }, "Logout"),
+      )
     ));
   }
 }

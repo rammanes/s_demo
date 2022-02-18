@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "876248137610",
+    "project_id": "schanddemo",
+    "storage_bucket": "schanddemo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:876248137610:android:ed89f4274496d2a1d2d273",
+        "android_client_info": {
+          "package_name": "com.example.s_demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "876248137610-bmkmpk5aoo2sr7m9j0h4s4msqt6mi64o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.s_demo",
+            "certificate_hash": "c1f511fcc696dbfd0fa3a12acf3338dd468ba7ca"
+          }
+        },
+        {
+          "client_id": "876248137610-u646umdtu5vpn1o1343n3n8s89b4u6cm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA78m0cYHZFqWLpYUPvT5NI4h0TtqFPcF4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "876248137610-u646umdtu5vpn1o1343n3n8s89b4u6cm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

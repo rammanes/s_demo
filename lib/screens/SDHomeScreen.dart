@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:s_demo/app_constants/sd_colors.dart';
+import 'package:s_demo/authentication/auth.dart';
 import 'package:s_demo/extensions/num_extension.dart';
 import 'package:s_demo/extensions/widget_extension.dart';
 import 'package:s_demo/models/SDModel.dart';
@@ -26,6 +28,8 @@ class _SDHomeScreenState extends State<SDHomeScreen> {
   }
   @override
   Widget build(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser!;
+    print(user);
     return Scaffold(
       backgroundColor: whiteColor,
       body: Container(
@@ -41,12 +45,31 @@ class _SDHomeScreenState extends State<SDHomeScreen> {
                     children: [
                       Text('Hi', style: TextStyle(fontSize: 18, color: SDAppTextColorSecondary, fontWeight: FontWeight.bold),),
                       8.width,
-                      Text('Achenyo, A.', style: TextStyle(fontSize: 18, color: SDAppTextColorSecondary, fontWeight: FontWeight.bold),),
+                      Text('${user.displayName}', style: TextStyle(fontSize: 18, color: SDAppTextColorSecondary, fontWeight: FontWeight.bold),),
                     ],
                   ),
-                  GestureDetector(
-                    child: Icon(Icons.notifications, color: SDColorPrimary, size: 22,),
-                    onTap: (){},
+                  10.width,
+                  Card(
+                    elevation: 8,
+                    child: Padding(
+                      padding: const EdgeInsets.all(6.0),
+                      child: GestureDetector(
+                        child: Icon(Icons.notifications, color: SDColorPrimary, size: 22,),
+                        onTap: (){},
+                      ),
+                    ),
+                  ),
+                  Card(
+                    elevation: 8,
+                    child: Padding(
+                      padding: const EdgeInsets.all(6.0),
+                      child: GestureDetector(
+                        child: Icon(Icons.logout, color: SDColorPrimary, size: 22,),
+                        onTap: (){
+                          AuthenticationHelper().signOut();
+                        },
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -88,103 +111,14 @@ class _SDHomeScreenState extends State<SDHomeScreen> {
                   )
                 ],
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text('Best Products', style: TextStyle(fontSize: 16, color: SDAppTextColorPrimary, fontWeight: FontWeight.bold),),
-                  GestureDetector(
-                    onTap: (){},
-                    child: Text('View all', style: TextStyle(fontSize: 14, color: SDColorPrimary, fontWeight: FontWeight.bold),),
-                  )
-                ],
-              ),
+
               20.height,
-              Container(
-                height: 200,
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  itemCount: sdProductList.length,
-                  itemBuilder: (BuildContext context, int index){
-                    return GestureDetector(
-                      onTap: (){},
-                      child: Card(
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                        margin: EdgeInsets.fromLTRB(8, 8, 16, 8),
-                        shadowColor: SDGreyColor.withOpacity(0.3),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
-                              child: freqWalkThroughImg(sdProductList[index].image!, 110, width: 120, fit: BoxFit.cover),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.all(8),
-                              child: Text(sdProductList[index].name!, style: TextStyle(fontSize: 16, color: SDAppTextColorPrimary, fontWeight: FontWeight.bold),),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 8, right: 8),
-                              child: Text( '\$ ${sdProductList[index].price!}',  style: TextStyle(fontSize: 12, color: SDAppTextColorSecondary),
-                            ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    );
-                  },
+              Center(
+                child: CircleAvatar(
+                  radius: 40,
+                  backgroundImage: NetworkImage(user.photoURL!),
                 ),
-              ),
-              16.height,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text('Featured Products', style: TextStyle(fontSize: 16, color: SDAppTextColorPrimary, fontWeight: FontWeight.bold),),
-                  GestureDetector(
-                    onTap: (){},
-                    child: Text('View all', style: TextStyle(fontSize: 14, color: SDColorPrimary, fontWeight: FontWeight.bold),),
-                  )
-                ],
-              ),
-              16.height,
-              Container(
-                height: 200,
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  itemCount: sdProductList.length,
-                  itemBuilder: (BuildContext context, int index){
-                    return GestureDetector(
-                      onTap: (){},
-                      child: Card(
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                        margin: EdgeInsets.fromLTRB(8, 8, 16, 8),
-                        shadowColor: SDGreyColor.withOpacity(0.3),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
-                              child: freqWalkThroughImg(sdProductList[index].image!, 110, width: 120, fit: BoxFit.cover),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.all(8),
-                              child: Text(sdProductList[index].name!, style: TextStyle(fontSize: 16, color: SDAppTextColorPrimary, fontWeight: FontWeight.bold),),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 8, right: 8),
-                              child: Text( '\$ ${sdProductList[index].price!}',  style: TextStyle(fontSize: 12, color: SDAppTextColorSecondary),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    );
-                  },
-                ),
-              ),
+              )
             ],
           ),
         ),
